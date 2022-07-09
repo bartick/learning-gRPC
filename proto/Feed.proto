@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package feed;
+
+// The structure how feeds should show up in the response
+message FeedReply {
+    int32 feed_id = 1;
+    string feed_title = 2;
+    string feed_content = 3;
+    string feed_publish_time = 4;
+    string feed_author = 5;
+}
+
+// The structure how feeds should be sent to the server for creation
+message FeedPost {
+    string feed_title = 1;
+    string feed_content = 2;
+    string feed_author = 3;
+}
+
+// The structure how feeds should be sent to the server to search for or any furthur processing
+message FeedRequest {
+    string feed_id = 1;
+}
+
+// Success message for the feed deletion
+message FeedSuccess {
+    string message = 1;
+}
+
+// All feeds are returned in this message
+message AllFeeds {
+    repeated FeedReply feeds = 1;
+}
+
+service FeedService {
+
+    // get a specific feed by id
+    rpc GetFeed(FeedRequest) returns (FeedReply);
+
+    // get all feeds
+    rpc GetAllFeeds(google.protobuf.Empty) returns (AllFeeds);
+
+    // create a new feed
+    rpc PostFeed(FeedPost) returns (FeedReply);
+
+    // delete a feed by id
+    rpc DeleteFeed(FeedRequest) returns (FeedSuccess);
+}
