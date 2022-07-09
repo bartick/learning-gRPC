@@ -1,0 +1,21 @@
+{
+  "name": "learning-grpc",
+  "version": "0.1.0",
+  "description": "Learning gPRC properly",
+  "scripts": {
+    "test": "echo Works",
+    "server": "node server.js",
+    "client": "node client.js"
+  },
+  "author": "bartick",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.7",
+    "@grpc/proto-loader": "^0.6.13",
+    "sequelize": "^6.21.2",
+    "sqlite3": "^5.0.8"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.4.1"
+  }
+}
