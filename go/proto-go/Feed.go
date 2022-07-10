@@ -21,7 +21,7 @@ func (s *Server) GetFeed(ctx context.Context, in *FeedRequest) (*FeedReply, erro
 	}, nil
 }
 
-func (s *Server) GetAllFeed(ctx context.Context, in *emptypb.Empty) (*AllFeeds, error) {
+func (s *Server) GetAllFeeds(ctx context.Context, in *emptypb.Empty) (*AllFeeds, error) {
 	return &AllFeeds{
 		Feeds: []*FeedReply{
 			{
