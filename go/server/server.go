@@ -16,7 +16,7 @@ func main() {
 		return
 	}
 
-	feedServer := feed.Server{}
+	feedServer := Server{}
 
 	grpcServer := grpc.NewServer()
 
@@ -26,5 +26,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+
+	fmt.Println("Server started")
 
 }
