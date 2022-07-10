@@ -24,9 +24,7 @@ func main() {
 
 	c := feed.NewFeedServiceClient(conn)
 
-	in := new(emptypb.Empty)
-
-	response, err := c.GetAllFeeds(context.Background(), in)
+	response, err := c.GetAllFeeds(context.Background(), &emptypb.Empty{})
 
 	if err != nil {
 		fmt.Println(err)
